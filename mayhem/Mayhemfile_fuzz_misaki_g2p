@@ -1,0 +1,9 @@
+project: savantenvs/openvino.genai
+target: fuzz_misaki_g2p
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/fuzz_misaki_g2p/testsuite
+cmds:
+  - cmd: /mayhem/fuzz_misaki_g2p
+    libfuzzer: true
+    timeout: 10

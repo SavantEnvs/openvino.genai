@@ -1,0 +1,2 @@
+
+{% macro r(x) %}{{ x | replace('a', 'b') }}{% endmacro %}{% for m in messages|selectattr('role','equalto','user') %}{{ r(m.content) }}{{ m.content.split(' ')|join(',') }}{% endfor %}{{ range(3)|list }}{{ {'k': 1}|items|list }}

@@ -1,0 +1,2 @@
+<think>step one
+step two</think>result

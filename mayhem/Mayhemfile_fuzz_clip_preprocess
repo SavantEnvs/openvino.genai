@@ -1,0 +1,9 @@
+project: savantenvs/openvino.genai
+target: fuzz_clip_preprocess
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/fuzz_clip_preprocess/testsuite
+cmds:
+  - cmd: /mayhem/fuzz_clip_preprocess
+    libfuzzer: true
+    timeout: 30
