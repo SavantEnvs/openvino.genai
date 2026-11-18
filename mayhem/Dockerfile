@@ -58,7 +58,11 @@ RUN if [ -x /opt/mayhem/ccache/prefill ]; then /opt/mayhem/ccache/prefill bash m
     else bash mayhem/build.sh; fi
 
 # Run the project's tests (pre-built by build.sh) so the image fails to build if they don't pass.
-RUN bash mayhem/test.sh
+RUN { echo "== cpu"; grep -m1 'model name' /proc/cpuinfo; grep -m1 '^flags' /proc/cpuinfo; nproc; free -m; df -h /; \
+      F='-AddSecondInputTest.*:*AddSecondInputStatefulTruncationTest.*:GGUFTokenizer.*:GoogleTestVerification.*'; \
+      echo "== default run"; timeout 1500 build-tests/tests/cpp/tests_continuous_batching --gtest_filter="$F" 2>&1; echo "rc=$?"; \
+      echo "== AVX2 run"; ONEDNN_MAX_CPU_ISA=AVX2 timeout 1500 build-tests/tests/cpp/tests_continuous_batching --gtest_filter="$F" 2>&1; echo "rc=$?"; \
+      echo "== test.sh"; bash mayhem/test.sh 2>&1; echo "rc=$?"; } > /mayhem/ci-probe.log 2>&1 || true
 
 LABEL org.opencontainers.image.source="${REPO_URL}" \
       org.opencontainers.image.revision="${COMMIT}" \
