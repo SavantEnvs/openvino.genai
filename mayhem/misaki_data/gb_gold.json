@@ -1,0 +1,41 @@
+{
+"hello": "həlˈO",
+"world": "wˈɜrld",
+"this": "ðˈɪs",
+"is": "ˈɪz",
+"a": "ə",
+"test": "tˈɛst",
+"the": {
+"DEFAULT": "ðə",
+"VERB": "ðˈi"
+},
+"quick": "kwˈɪk",
+"brown": "brˈWn",
+"fox": "fˈɑks",
+"jumps": "ˈʤʌmps",
+"over": "ˈOvəɹ",
+"lazy": "lˈAzi",
+"dog": "dˈɔg",
+"it": "ˈɪt",
+"costs": {
+"DEFAULT": "kˈɔsts",
+"NOUN": "kˈɔsts"
+},
+"on": "ˈɑn",
+"at": "ˈæt",
+"pm": "pˈi ˈɛm",
+"items": "ˈAitəmz",
+"read": {
+"DEFAULT": "ɹˈid",
+"VBD": "ɹˈɛd"
+},
+"stop": "stˈɑp",
+"do": "dˈu",
+"not": "nˈɑt",
+"dollars": "dˈɑləɹz",
+"may": {
+"DEFAULT": "mˈA",
+"NOUN": "mˈA"
+},
+"third": "θˈɜrd"
+}
